@@ -123,13 +123,8 @@ with open('test_data.csv') as f:
     
     with open("correct_data.csv", "w", newline='') as answer:
         #writer = csv.writer(answer, delimiter=' ')
-        '''
-        for x in correct_data:
-            writer.writerow((arr_id[0], arr_month[0], arr_money[0]))
-        '''
+        
         writer = csv.DictWriter(answer, fieldnames = ["id", "month", "price"])
-        #writer.writeheader()
-        #writer.writerows([{"col1" : i, "col2" : j} for i, j in zip([1,2],[3,4])])
         writer.writerow({"id": "id","month":"month","price":"price"})
         for k in range(len(arr_month)):
             writer.writerow({"id": arr_id[k], "month": arr_month[k], "price": float(arr_money[k])})
